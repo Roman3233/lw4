@@ -1,21 +1,19 @@
 import string
 
 def process_text(text):
-    # 1. Перетворення тексту в нижній регістр
+    # 1. Використання вбудованої функції lower() для перетворення тексту в нижній регістр
     lower_text = text.lower()
 
-    # 2. Заміна ком на крапки та видалення розділових знаків
+    # 2. Використання функції replace() для заміни всіх ком у тексті на крапки
     replaced_text = lower_text.replace(',', '.')
-    cleaned_text = replaced_text.translate(str.maketrans('', '', string.punctuation))
 
-    # 3. Розбиття тексту на список слів
-    words_list = cleaned_text.split()
+    # 3. Використання функції split() для розбиття тексту на список слів
+    words_list = replaced_text.split()
 
     # 4. Додані функції
-    only_alpha = cleaned_text.isalpha()  # Перевіряємо, чи всі символи - літери
-    position_of_word = cleaned_text.find('замза')  # Знаходимо позицію підрядка
-    right_justified_text = cleaned_text.rjust(150)  # Вирівнюємо текст праворуч
-
+    only_alpha = replaced_text.replace('.', '').replace(' ', '').isalpha()  # Перевіряємо, чи всі символи - літери
+    position_of_word = replaced_text.find('замза')  # Знаходимо позицію підрядка
+    right_justified_text = replaced_text.rjust(150)  # Вирівнюємо текст праворуч
 
     print("Оброблений текст:", right_justified_text)
     print("Кількість слів у тексті:", len(words_list))
@@ -24,7 +22,6 @@ def process_text(text):
 
     return words_list, len(words_list)
 
-# Тестовий текст
 text = ("Одного разу, прокинувшись вранці після неспокійного сну, Ґреґор Замза виявив, що він перетворився "
 "на величезну комаху. Лежачи на панцирно-твердій спині, він бачив перед собою, піднявши трохи голову, "
 "своє опукле, коричневе, розділене на жорсткі дуги черевце, на вершині якого ковзала на межі ось-ось зісковзнути ковдра. "
