@@ -9,9 +9,7 @@ def process_text(text):
   words_list = replaced_text.split()
 
   # 4. Додані функції студентом Куцомеля Денис
-  only_alpha = all(
-      word.isalpha()
-      for word in words_list)  # Перевіряємо, чи всі слова - літери
+  only_alpha = all(word.isalpha() for word in words_list) # Перевіряємо, чи всі слова - літери
   position_of_word = lower_text.find('замза')  # Знаходимо позицію підрядка
   right_justified_text = replaced_text.rjust(150)  # Вирівнюємо текст праворуч
 
@@ -19,6 +17,7 @@ def process_text(text):
   print("Кількість слів у тексті:", len(words_list))
   print(f"Позиція слова 'замза': {position_of_word}")
   print(f"Чи містить текст лише літери: {only_alpha}")
+
 
 text = (
     "Одного разу, прокинувшись вранці після неспокійного сну, Ґреґор Замза виявив, що він перетворився "
